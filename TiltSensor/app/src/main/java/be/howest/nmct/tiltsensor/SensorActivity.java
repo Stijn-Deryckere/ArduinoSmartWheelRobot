@@ -26,16 +26,11 @@ public class SensorActivity extends Activity implements SensorEventListener {
     }
 
     @Override
-    public final void onAccuracyChanged(Sensor sensor, int accuracy) {
-        // Do something here if sensor accuracy changes.
-    }
-
-    @Override
     public final void onSensorChanged(SensorEvent event) {
         //X=[0] Y=[1] Z=[2]
         Integer x = Math.round(event.values[0]);
         Integer y = Math.round(event.values[1]);
-        txbAcceleration.setText("X: "+Math.round(event.values[0])+"\nY: "+Math.round(event.values[1]));
+        txbAcceleration.setText("X: " + Math.round(event.values[0]) + "\nY: " + Math.round(event.values[1]));
 
         //CHECK X-AXIS
         if(x>=2){
@@ -45,9 +40,6 @@ public class SensorActivity extends Activity implements SensorEventListener {
         else if(x<=-2){
             //Drive backwards
             Log.i("DRIVEINFO","Driving backwards. X="+x);
-        }
-        else{
-            //Stand still
         }
 
         //CHECK Y-AXIS
@@ -59,10 +51,11 @@ public class SensorActivity extends Activity implements SensorEventListener {
             //Drive right
             Log.i("DRIVEINFO","Turning right. Y="+y);
         }
-        else{
-            //Stand still
-        }
+    }
 
+    @Override
+    public final void onAccuracyChanged(Sensor sensor, int accuracy) {
+        // Do something here if sensor accuracy changes.
     }
 
     @Override

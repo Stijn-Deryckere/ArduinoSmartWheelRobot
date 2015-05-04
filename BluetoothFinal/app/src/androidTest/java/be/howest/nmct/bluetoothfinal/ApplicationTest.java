@@ -1,4 +1,4 @@
-package be.howest.nmct.blauw;
+package be.howest.nmct.bluetoothfinal;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
